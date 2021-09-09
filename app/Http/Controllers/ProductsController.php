@@ -68,18 +68,14 @@ class ProductsController extends Controller
 
     private function registerHistoricTransactionQuantity($product, $quantity)
     {
-        try {
-            DB::beginTransaction();
+        DB::beginTransaction();
             
-            Historic::create([
+        Historic::create([
                     'quantity' => $quantity,
                     'product_id' => $product->id,
                 ]);
     
-            DB::commit();
-        } catch (\Throwable $th) {
-            dd($th);
-        }
+        DB::commit();
     }
 
     public function getHistoriesBySku(string $sku)
