@@ -25,7 +25,7 @@ class ProductStoreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'sku' => ['required', 'string'],
+            'sku' => ['required', 'string', 'unique:products'],
             'quantity' => ['required', 'integer', 'min:0']
         ];
     }
@@ -36,7 +36,8 @@ class ProductStoreRequest extends FormRequest
             'name.required' => 'O campo nome é obrigatorio',
             'name.string' => 'O campo nome deve ser um texto',
             'sku.required' => 'O campo sku é obrigatorio',
-            'sku.string' => 'O campo sku deve ser um texto',            
+            'sku.string' => 'O campo sku deve ser um texto',
+            'sku.unique' => 'O campo sku deve ser unico',            
             'quantity.integer' => 'O campo quantidade deve ser um inteiro',
             'quantity.required' => 'O campo quantidade é obrigatorio',
             'quantity.min' => 'O campo quantidade deve ser maior ou igual a 0',
