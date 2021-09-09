@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('products')->group(function () {
     Route::post('/', [ProductsController::class, 'store']);
+    Route::put('/update/quantity/{sku}', [ProductsController::class, 'updateQuantityOnlySku']);
 });
